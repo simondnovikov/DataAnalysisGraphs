@@ -4,3 +4,6 @@ geopandas
 rasterstats
 requests
 shapely
+pandas
+matplotlib
+seaborn

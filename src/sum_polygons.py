@@ -13,7 +13,7 @@ from rasterio.mask import mask
 
 
 from matplotlib import cm
-from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap, ListedColormap
+from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
 our_cmap = cm.get_cmap('hot_r', 10)
 newcolors = our_cmap(np.linspace(0, 1, 10))
@@ -26,7 +26,7 @@ norm = colors.BoundaryNorm(bounds, our_cmap.N)
 
 russian_fills = ['#a52714','#000000','#880e4f','#bcaaa4','#bdbdbd']
 
-file_path = f"../pulled_data/1664627935.json"
+file_path = "../pulled_data/1664627935.json"
 with open(file_path, "r") as f:
     original_polygons = json.load(f)
 polygons_object_list = {"geometry": [ Polygon(item[1]) for item in original_polygons ]}

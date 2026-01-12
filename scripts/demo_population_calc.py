@@ -3,7 +3,6 @@ import requests
 import geopandas as gpd
 from rasterstats import zonal_stats
 from shapely.geometry import Polygon
-import rasterio
 
 # Configuration
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'staticData')
@@ -74,7 +73,7 @@ def main():
 
     try:
         population = calculate_population(sample_poly, RASTER_PATH)
-        print(f"\n--- Results ---")
+        print("\n--- Results ---")
         print(f"Estimated Population in the sample polygon (Luxembourg area) for year {YEAR}:")
         print(f"{population:, .2f} people")
     except Exception as e:

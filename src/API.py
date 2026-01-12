@@ -39,7 +39,7 @@ def get_polygons(time=None):
             polygon = row["geometry"]["coordinates"][0]
             no_zero_polygon = [ [item[0],item[1]] for item in polygon ]
             polygons.append([fill,no_zero_polygon])
-        except:
+        except KeyError:
             continue
     return polygons
 
