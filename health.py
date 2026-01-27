@@ -86,7 +86,7 @@ def main():
         if not selected_countries:
              selected_countries = available_countries[:5] # Fallback to first 5
         print(f"No countries specified. Defaulting to: {selected_countries}")
-    selected_countries = available_countries
+ #   selected_countries = available_countries
     df_filtered = df_merged[df_merged["Entity"].isin(selected_countries)].copy()
 
     # Filter by Years
@@ -142,11 +142,11 @@ def main():
         if len(country_data) > 0:
             # Label end
             end_row = country_data.iloc[-1]
-          #  plt.text(end_row["hours_of_effort"], end_row["life_expectancy"], str(end_row["Entity"] ), fontsize=14, alpha=0.7)
+            plt.text(end_row["hours_of_effort"], end_row["life_expectancy"], str(end_row["Entity"] ), fontsize=14, alpha=0.7)
 
 
     plt.title(f"Life Expectancy vs. Hours of Effort ({df_filtered["Year"].min()} - {df_filtered["Year"].max()})")
-    plt.xlabel(f"Hours of Effort per birth event (normalized with cost of {death_expense_vs_birth} births = 1 death)")
+    plt.xlabel(f"Hours of Effort per unit of effort (death = {death_expense_vs_birth} units, birth = 1 unit)")
     plt.ylabel("Life Expectancy (Years)")
     plt.gca().get_legend().remove()
     plt.tight_layout()
