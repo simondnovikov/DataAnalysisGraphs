@@ -164,7 +164,7 @@ def calculate_opr(matches):
             opr_map[team][name] = res.x[i]
 
     results['Non-Penalty Total'] = results['Auto'] + results['Teleop']
-    results['Total'] = results['Auto'] + results['Teleop'] + results['Penalty']
+    results['Total'] = results['Auto'] + results['Teleop'] - results['Penalty']
     
     for team in sorted_teams:
         opr_map[team]['Non-Penalty Total'] = results[results['Team'] == team]['Non-Penalty Total'].values[0]
@@ -218,6 +218,8 @@ def predict_matches(matches, opr_map):
 
 def main():
     url = "https://ftc-events.firstinspires.org/2025/ILKSQ1/qualifications"
+    url = "https://ftc-events.firstinspires.org/2025/USTXNIM3/qualifications"
+    url = "https://ftc-events.firstinspires.org/2025/ILKSQ2/qualifications/"
     if len(sys.argv) > 1:
         url = sys.argv[1]
         
